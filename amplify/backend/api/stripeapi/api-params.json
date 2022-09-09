@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/shop",
+      "lambdaFunction": "amplifyStripeFunction",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/shop"
+    }
+  ],
+  "resourceName": "stripeapi",
+  "apiName": "stripeapi",
+  "functionArns": [
+    {
+      "lambdaFunction": "amplifyStripeFunction"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-amplifyreactstripe-dev-21920-authRole",
+    "unAuthRoleName": "amplify-amplifyreactstripe-dev-21920-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "amplifyStripeFunction",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}
