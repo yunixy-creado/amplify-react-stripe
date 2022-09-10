@@ -1,3 +1,6 @@
 {
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "secretNames": [
+    "STRIPE_LIMITED_API_KEY"
+  ]
 }

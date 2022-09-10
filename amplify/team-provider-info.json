@@ -15,7 +15,8 @@
       "function": {
         "amplifyStripeFunction": {
           "deploymentBucketName": "amplify-amplifyreactstripe-dev-21920-deployment",
-          "s3Key": "amplify-builds/amplifyStripeFunction-4d4e4b644e7a376c7334-build.zip"
+          "s3Key": "amplify-builds/amplifyStripeFunction-54656b546e3451714c6b-build.zip",
+          "secretsPathAmplifyAppId": "d3aib5wfcr09v5"
         }
       }
     }
