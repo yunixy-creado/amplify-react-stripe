@@ -1,24 +1,30 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-amplifyreactstripe-dev-21920-authRole",
-      "UnauthRoleArn": "arn:aws:iam::226484346947:role/amplify-amplifyreactstripe-dev-21920-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::226484346947:role/amplify-amplifyreactstripe-dev-21920-authRole",
-      "Region": "ap-northeast-1",
-      "DeploymentBucketName": "amplify-amplifyreactstripe-dev-21920-deployment",
-      "UnauthRoleName": "amplify-amplifyreactstripe-dev-21920-unauthRole",
-      "StackName": "amplify-amplifyreactstripe-dev-21920",
-      "StackId": "arn:aws:cloudformation:ap-northeast-1:226484346947:stack/amplify-amplifyreactstripe-dev-21920/8b704640-3063-11ed-968f-0607fb8b95a9",
-      "AmplifyAppId": "d3aib5wfcr09v5"
-    },
-    "categories": {
-      "function": {
-        "amplifyStripeFunction": {
-          "deploymentBucketName": "amplify-amplifyreactstripe-dev-21920-deployment",
-          "s3Key": "amplify-builds/amplifyStripeFunction-6a336c6c73572b2b4a4c-build.zip",
-          "secretsPathAmplifyAppId": "d3aib5wfcr09v5"
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-amplifyreactstripe-dev-21920-authRole",
+            "UnauthRoleArn": "arn:aws:iam::226484346947:role/amplify-amplifyreactstripe-dev-21920-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::226484346947:role/amplify-amplifyreactstripe-dev-21920-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "amplify-amplifyreactstripe-dev-21920-deployment",
+            "UnauthRoleName": "amplify-amplifyreactstripe-dev-21920-unauthRole",
+            "StackName": "amplify-amplifyreactstripe-dev-21920",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:226484346947:stack/amplify-amplifyreactstripe-dev-21920/8b704640-3063-11ed-968f-0607fb8b95a9",
+            "AmplifyAppId": "d3aib5wfcr09v5"
+        },
+        "categories": {
+            "function": {
+                "amplifyStripeFunction": {
+                    "deploymentBucketName": "amplify-amplifyreactstripe-dev-21920-deployment",
+                    "s3Key": "amplify-builds/amplifyStripeFunction-6a336c6c73572b2b4a4c-build.zip",
+                    "secretsPathAmplifyAppId": "d3aib5wfcr09v5"
+                }
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3aib5wfcr09v5",
+                    "type": "manual"
+                }
+            }
         }
-      }
     }
-  }
 }
