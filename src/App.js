@@ -1,12 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
-import { Container, Card,  CardBody, CardTitle, Button, CardText, Row, Col, CardImg } from 'reactstrap';
+import { Container, Card,  CardBody, CardTitle,  CardText, Row, Col, CardImg } from 'reactstrap';
 import { useState, useEffect } from 'react';
 import { API } from 'aws-amplify';
+import { BuyButton } from './BuyButton';
 
-/**
- * サムネイル画像
- */
+
 export function ProductThumbnail({product}) {
     const thumbnail = product && product.images ? product.images[0]: null
     if (!thumbnail) return null;
@@ -45,14 +44,10 @@ function App() {
                   <CardTitle>{product.name}</CardTitle>
                   <CardText>{product.description}</CardText>
                   {product.prices.map(price => (
-                    <Button key={price.id} block>
-                      {`${price.unit_amount.toLocaleString()} ${price.currency.toLocaleUpperCase()}`}
-                      {price.recurring ? (
-                        <>
-                          {` / per ${price.recurring.interval_count} ${price.recurring.interval}`}
-                        </>
-                      ): null}
-                    </Button>
+                    <BuyButton
+                       key={price.id}
+                       price={price}
+                     />
                   ))}
                 </CardBody>
               </Card>

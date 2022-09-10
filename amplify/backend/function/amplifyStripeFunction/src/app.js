@@ -80,9 +80,45 @@ app.get('/shop/products', async function(req, res) {
 * Stripe Checkout           *
 * 決済ページURLを作成するAPI    *
 ****************************/
-app.post('/shop/products/:price_id/checkout', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
+app.post('/shop/products/:price_id/checkout', async function(req, res) {
+  const stripe = await loadStripe()
+  const priceId = req.params.price_id;
+  const appUrl = req.headers.origin || 'http://localhost:3000';
+
+  const price = await stripe.prices.retrieve(priceId)
+  if (!price) {
+    return res.status(404).json({
+      message: '存在しない料金IDです。'
+    })
+  }
+
+  const mode = price.type === 'recurring' ? 'subscription': 'payment'
+  const param = {
+    mode,
+    payment_method_types: ['card'],
+    line_items: [{
+      price: priceId,
+      quantity: 1
+    }],
+    cancel_url: `${appUrl}/cancel`,
+    success_url: `${appUrl}/success`,
+    billing_address_collection: 'required',
+    shipping_address_collection: {
+        allowed_countries: ['JP']
+    },
+    allow_promotion_codes: true,
+  }
+  if (mode === 'subscription') {
+    param.subscription_data = {
+      trial_period_days: 14
+    }
+  } else {
+    param.submit_type = 'donate'
+  }
+
+  const session = await stripe.checkout.sessions.create(param)
+  res.json(session)
+
 });
 
 
